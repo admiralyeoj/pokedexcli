@@ -1,13 +1,25 @@
 package commands
 
+import "github.com/admiralyeoj/pokedexcli/types"
+
 type cliCommand struct {
 	name        string
 	description string
-	Callback    func() error
+	Callback    func(cfg *types.Config) error
 }
 
 func GetCommands() map[string]cliCommand {
 	return map[string]cliCommand{
+		"map": {
+			name:        "map",
+			description: "Displays the next 20 locations",
+			Callback:    Map,
+		},
+		"mapb": {
+			name:        "mapb",
+			description: "Display the previous 20 locations. This does not work on the first page.",
+			Callback:    Mapb,
+		},
 		"help": {
 			name:        "help",
 			description: "Displays a help message",

@@ -5,9 +5,11 @@ import (
 	"os"
 	"os/exec"
 	"runtime"
+
+	"github.com/admiralyeoj/pokedexcli/types"
 )
 
-func Clear() error {
+func Clear(cfg *types.Config) error {
 	if runtime.GOOS == "windows" {
 		cmd := exec.Command("cmd", "/c", "cls")
 		cmd.Stdout = os.Stdout

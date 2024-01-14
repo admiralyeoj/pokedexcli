@@ -1,8 +1,12 @@
 package commands
 
-import "os"
+import (
+	"os"
 
-func Exit() error {
+	"github.com/admiralyeoj/pokedexcli/types"
+)
+
+func Exit(cfg *types.Config) error {
 	os.Exit(0)
 	return nil
 }

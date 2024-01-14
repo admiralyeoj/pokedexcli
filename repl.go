@@ -7,12 +7,13 @@ import (
 	"strings"
 
 	"github.com/admiralyeoj/pokedexcli/commands"
+	"github.com/admiralyeoj/pokedexcli/types"
 )
 
 // cliName is the name used in the repl prompts
 const cliName string = "Pokedex"
 
-func startRepl() {
+func startRepl(cfg *types.Config) {
 	reader := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Print(cliName + " > ")
@@ -27,13 +28,13 @@ func startRepl() {
 
 		command, exists := commands.GetCommands()[commandName]
 		if exists {
-			err := command.Callback()
+			err := command.Callback(cfg)
 			if err != nil {
 				fmt.Println(err)
 			}
 			continue
 		} else {
-			fmt.Println("Unknown command")
+			fmt.Println(commandName, ": command not found")
 			continue
 		}
 	}
