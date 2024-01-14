@@ -3,10 +3,10 @@ package commands
 import (
 	"os"
 
-	"github.com/admiralyeoj/pokedexcli/types"
+	"github.com/admiralyeoj/pokedexcli/configs"
 )
 
-func Exit(cfg *types.Config) error {
+func Exit(cfg *configs.Config) error {
 	os.Exit(0)
 	return nil
 }

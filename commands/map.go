@@ -3,10 +3,10 @@ package commands
 import (
 	"fmt"
 
-	"github.com/admiralyeoj/pokedexcli/types"
+	"github.com/admiralyeoj/pokedexcli/configs"
 )
 
-func Map(cfg *types.Config) error {
+func Map(cfg *configs.Config) error {
 	locationsResp, err := cfg.PokeApiClient.ListLocations(cfg.NextLocationsURL)
 	if err != nil {
 		return err

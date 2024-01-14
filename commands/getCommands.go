@@ -1,11 +1,13 @@
 package commands
 
-import "github.com/admiralyeoj/pokedexcli/types"
+import (
+	"github.com/admiralyeoj/pokedexcli/configs"
+)
 
 type cliCommand struct {
 	name        string
 	description string
-	Callback    func(cfg *types.Config) error
+	Callback    func(cfg *configs.Config) error
 }
 
 func GetCommands() map[string]cliCommand {

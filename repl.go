@@ -7,13 +7,13 @@ import (
 	"strings"
 
 	"github.com/admiralyeoj/pokedexcli/commands"
-	"github.com/admiralyeoj/pokedexcli/types"
+	"github.com/admiralyeoj/pokedexcli/configs"
 )
 
 // cliName is the name used in the repl prompts
 const cliName string = "Pokedex"
 
-func startRepl(cfg *types.Config) {
+func startRepl(cfg *configs.Config) {
 	reader := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Print(cliName + " > ")

@@ -3,10 +3,10 @@ package commands
 import (
 	"fmt"
 
-	"github.com/admiralyeoj/pokedexcli/types"
+	"github.com/admiralyeoj/pokedexcli/configs"
 )
 
-func Help(cfg *types.Config) error {
+func Help(cfg *configs.Config) error {
 	fmt.Println()
 	fmt.Println("Welcome to the Pokedex!")
 	fmt.Println("Usage:")

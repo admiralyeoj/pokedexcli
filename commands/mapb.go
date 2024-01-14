@@ -4,10 +4,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/admiralyeoj/pokedexcli/types"
+	"github.com/admiralyeoj/pokedexcli/configs"
 )
 
-func Mapb(cfg *types.Config) error {
+func Mapb(cfg *configs.Config) error {
 	if cfg.PrevLocationsURL == nil {
 		return errors.New("you're on the first page")
 	}

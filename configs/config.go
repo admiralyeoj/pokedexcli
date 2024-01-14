@@ -1,4 +1,4 @@
-package types
+package configs
 
 import "github.com/admiralyeoj/pokedexcli/internal/pokeApi"
 
