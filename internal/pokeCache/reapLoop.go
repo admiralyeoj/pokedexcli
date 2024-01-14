@@ -1,7 +1,6 @@
 package pokeCache
 
 import (
-	"fmt"
 	"time"
 )
 
@@ -15,7 +14,6 @@ func (c *Cache) reapLoop() {
 			c.mu.Lock()
 			for key, entry := range c.cache {
 				if time.Since(entry.createdAt) > c.reapInterval {
-					fmt.Println("Deleting " + key)
 					delete(c.cache, key)
 				}
 			}
