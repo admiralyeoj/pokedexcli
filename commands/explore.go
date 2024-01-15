@@ -13,7 +13,7 @@ func Explore(cfg *configs.Config, args ...string) error {
 	}
 
 	name := args[0]
-	resourceResp, err := cfg.PokeApiClient.ResourceList(name)
+	resourceResp, err := cfg.PokeApiClient.GetLocation(name)
 	if err != nil {
 		return err
 	}

@@ -12,6 +12,7 @@ func main() {
 
 	cfg := &configs.Config{
 		PokeApiClient: pokeClient,
+		CaughtPokemon: map[string]pokeApi.Pokemon{},
 	}
 
 	startRepl(cfg)

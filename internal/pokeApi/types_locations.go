@@ -1,6 +1,18 @@
 package pokeApi
 
-type ResourceList struct {
+// RespShallowLocations -
+type RespShallowLocations struct {
+	Count    int     `json:"count"`
+	Next     *string `json:"next"`
+	Previous *string `json:"previous"`
+	Results  []struct {
+		Name string `json:"name"`
+		URL  string `json:"url"`
+	} `json:"results"`
+}
+
+// Location -
+type Location struct {
 	EncounterMethodRates []struct {
 		EncounterMethod struct {
 			Name string `json:"name"`
@@ -35,13 +47,10 @@ type ResourceList struct {
 		} `json:"pokemon"`
 		VersionDetails []struct {
 			EncounterDetails []struct {
-				Chance          int `json:"chance"`
-				ConditionValues []struct {
-					Name string `json:"name"`
-					URL  string `json:"url"`
-				} `json:"condition_values"`
-				MaxLevel int `json:"max_level"`
-				Method   struct {
+				Chance          int           `json:"chance"`
+				ConditionValues []interface{} `json:"condition_values"`
+				MaxLevel        int           `json:"max_level"`
+				Method          struct {
 					Name string `json:"name"`
 					URL  string `json:"url"`
 				} `json:"method"`
