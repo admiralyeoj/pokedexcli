@@ -5,10 +5,10 @@ import (
 )
 
 type cliCommand struct {
-	name        string
-	description string
-	Callback    func(cfg *configs.Config) error
-	CallbackStr func(cfg *configs.Config, param string) error
+	name         string
+	description  string
+	Callback     func(cfg *configs.Config) error
+	CallbackArgs func(cfg *configs.Config, args ...string) error
 }
 
 func GetCommands() map[string]cliCommand {
@@ -24,9 +24,9 @@ func GetCommands() map[string]cliCommand {
 			Callback:    Mapb,
 		},
 		"explore": {
-			name:        "explore",
-			description: "Enter a location name and get the pokemon that can be encountered.",
-			CallbackStr: Explore,
+			name:         "explore",
+			description:  "Enter a location name and get the pokemon that can be encountered.",
+			CallbackArgs: Explore,
 		},
 		"help": {
 			name:        "help",

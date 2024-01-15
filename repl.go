@@ -33,13 +33,13 @@ func startRepl(cfg *configs.Config) {
 				if err != nil {
 					fmt.Println(err)
 				}
-			} else if command.CallbackStr != nil {
-				param := ""
+			} else if command.CallbackArgs != nil {
+				args := []string{}
 				if len(words) > 1 {
-					param = words[1]
+					args = words[1:]
 				}
 
-				err := command.CallbackStr(cfg, param)
+				err := command.CallbackArgs(cfg, args...)
 				if err != nil {
 					fmt.Println(err)
 				}

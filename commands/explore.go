@@ -1,13 +1,18 @@
 package commands
 
 import (
+	"errors"
 	"fmt"
 
 	"github.com/admiralyeoj/pokedexcli/configs"
 )
 
-func Explore(cfg *configs.Config, name string) error {
-	// name = "mt-coronet-1f-route-207"
+func Explore(cfg *configs.Config, args ...string) error {
+	if len(args) != 1 {
+		return errors.New("you must provide a location name")
+	}
+
+	name := args[0]
 	resourceResp, err := cfg.PokeApiClient.ResourceList(name)
 	if err != nil {
 		return err
@@ -16,8 +21,8 @@ func Explore(cfg *configs.Config, name string) error {
 	fmt.Println("Exploring " + name)
 	fmt.Println("Found Pokemon:")
 
-	for _, row := range resourceResp.PokemonEncounters {
-		fmt.Println("- " + row.Pokemon.Name)
+	for _, enc := range resourceResp.PokemonEncounters {
+		fmt.Println("- " + enc.Pokemon.Name)
 	}
 
 	return nil
