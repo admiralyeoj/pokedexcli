@@ -1,7 +1,7 @@
 package pokeApi
 
 // RespShallowLocations -
-type RespShallowLocations struct {
+type LocationType struct {
 	Count    int     `json:"count"`
 	Next     *string `json:"next"`
 	Previous *string `json:"previous"`

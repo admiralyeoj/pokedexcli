@@ -8,6 +8,7 @@ type cliCommand struct {
 	name        string
 	description string
 	Callback    func(cfg *configs.Config) error
+	CallbackStr func(cfg *configs.Config, param string) error
 }
 
 func GetCommands() map[string]cliCommand {
@@ -21,6 +22,11 @@ func GetCommands() map[string]cliCommand {
 			name:        "mapb",
 			description: "Display the previous 20 locations. This does not work on the first page.",
 			Callback:    Mapb,
+		},
+		"explore": {
+			name:        "explore",
+			description: "Enter a location name and get the pokemon that can be encountered.",
+			CallbackStr: Explore,
 		},
 		"help": {
 			name:        "help",

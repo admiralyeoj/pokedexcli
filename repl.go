@@ -28,10 +28,23 @@ func startRepl(cfg *configs.Config) {
 
 		command, exists := commands.GetCommands()[commandName]
 		if exists {
-			err := command.Callback(cfg)
-			if err != nil {
-				fmt.Println(err)
+			if command.Callback != nil {
+				err := command.Callback(cfg)
+				if err != nil {
+					fmt.Println(err)
+				}
+			} else if command.CallbackStr != nil {
+				param := ""
+				if len(words) > 1 {
+					param = words[1]
+				}
+
+				err := command.CallbackStr(cfg, param)
+				if err != nil {
+					fmt.Println(err)
+				}
 			}
+
 			continue
 		} else {
 			fmt.Println(commandName, ": command not found")
